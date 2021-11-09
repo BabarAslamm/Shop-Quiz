@@ -96,9 +96,9 @@
                var id = $(this).data('id');
             //  alert('SHOWWW');
 
+
                        var url = "{{ route('Product.show',':id') }}";
                        url = url.replace(':id', id);
-
                        var token = "{{ csrf_token() }}";
 
                        $.ajax({
@@ -107,12 +107,12 @@
                                data: {'_token': token, '_method': 'DELETE'},
                                success: function (response) {
                                 //     alert(response);
-                                    // console.log(response.ProductImage);
+                                     console.log(response);
 
-                                    var cat_id = response.Category.name;
-                                    var title = response.Product.title;
-                                    var sku = response.Product.sku;
-                                    var price = response.Product.price;
+                                    var cat_id  = response.Category.name;
+                                    var title   = response.Product.title;
+                                    var sku     = response.Product.sku;
+                                    var price   = response.Product.price;
 
                                     var image_1 = response.ProductImage.image_1;
                                     var image_2 = response.ProductImage.image_2;
@@ -134,17 +134,17 @@
 
                                     var image1 = "{{ asset('images/shop/carosuel/:image1')}}";
                                     image1 = image1.replace(':image1', image_1);
-                                    console.log(image1);
+
 
                                     var image2 = "{{ asset('images/shop/carosuel/:image2')}}";
                                     image2 = image2.replace(':image2', image_2);
-                                    console.log(image2);
+
 
                                     var image3 = "{{ asset('images/shop/carosuel/:image3')}}";
                                     image3 = image3.replace(':image3', image_3);
-                                    console.log(image3);
 
-                                    $("#image_1").attr("src", image1);
+
+                                   var a = $("#image_1").attr("src", image1);
                                     $("#image_2").attr("src", image2);
                                     $("#image_3").attr("src", image3);
 
@@ -163,7 +163,6 @@
                     });
 
 </script>
-
 
 
 

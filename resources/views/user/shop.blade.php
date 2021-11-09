@@ -15,7 +15,7 @@
 
                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-3  product">
                         <div class="card" style="width: 100%;">
-                            <img id="img" style="height: 200px;" src="{{ asset('images/Shop/'.$product->feature_image)}}" class="card-img-top" alt="...">
+                            <img id="img" style="height: 200px;" src="{{ asset('images/shop/'.$product->feature_image)}}" class="card-img-top" alt="...">
 <a href="javascript:" data-id="{{ $product->id }}" class="btn btn-sm btn-warning  showpro "  data-toggle="modal" data-target="#note_popup">Quick View</a>
                             {{-- <a href="" class="btn btn-warning"  data-toggle="modal" data-target="#note_popup"><h6 class="text-white">Quick Modal</h6></a> --}}
                             <div class="card-body text-center">

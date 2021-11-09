@@ -13,7 +13,8 @@
 
             @foreach ($Pages as $page)
             @if ( $page->name =='Shop')
-            <li class="nav-item" role="presentation"><a class="nav-link active" href="{{ url('/create/shop') }}">Shop</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link active" href="{{url($page->slug.'/show/'. $page->id) }}">{{ $page->name }}</a></li>
+            {{-- <li class="nav-item" role="presentation"><a class="nav-link active" href="{{ url('/create/shop') }}">Shop</a></li> --}}
             @else
             <li class="nav-item" role="presentation"><a class="nav-link active" href="{{url($page->slug.'/show/'. $page->id) }}">{{ $page->name }}</a></li>
             @endif

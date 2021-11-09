@@ -18,13 +18,14 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/user', function () {
-    return view('user.index');
+// Route::get('/user', function () {
+//     return view('user.index');
 
-});
-// Route::get('/user', [UserViewController::class, 'index'])->name('user');
+//  });
+  Route::get('/user', [UserViewController::class, 'index']);
 Route::get('/{slug}/show/{id}', [UserViewController::class, 'Page']);
-Route::get('/create/shop', [UserViewController::class, 'Shop']);
+Route::get('/{slug}/show/{id}', [UserViewController::class, 'Shop'])->name('create.shop');
+//  Route::get('/create/shop', [UserViewController::class, 'Shop']);
 //SHOP PRODUCT MODAL
 Route::get('shop/product/{id}',  [App\Http\Controllers\UserViewController::class, 'ProductModal'])->name('ShopProduct');
 

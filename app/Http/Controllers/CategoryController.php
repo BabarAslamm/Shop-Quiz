@@ -13,6 +13,10 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $Category = Category::all();
@@ -34,7 +38,7 @@ class CategoryController extends Controller
         public function data(Request $request){
 
 
-       
+
 
         if ($request->ajax()) {
             $data = Category::all();

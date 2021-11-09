@@ -124,11 +124,35 @@
                                     $('#sku').html(sku);
                                     $('#cat_id').html(cat_id);
                                     $('#price').html(price);
-                                    $("#image_1").attr("src", "images/shop/carosuel/"+image_1);
-                                    $("#image_2").attr("src", "images/shop/carosuel/"+image_2);
-                                    $("#image_3").attr("src", "images/shop/carosuel/"+image_3);
-                                //   var check =  'images/shop/carosuel/'+image_1;
-                                //   console.log(check);
+
+
+                                    $('#title').html(title);
+                                    $('#sku').html(sku);
+                                    $('#cat_id').html(cat_id);
+                                    $('#price').html(price);
+
+
+                                    var image1 = "{{ asset('images/shop/carosuel/:image1')}}";
+                                    image1 = image1.replace(':image1', image_1);
+                                    console.log(image1);
+
+                                    var image2 = "{{ asset('images/shop/carosuel/:image2')}}";
+                                    image2 = image2.replace(':image2', image_2);
+                                    console.log(image2);
+
+                                    var image3 = "{{ asset('images/shop/carosuel/:image3')}}";
+                                    image3 = image3.replace(':image3', image_3);
+                                    console.log(image3);
+
+                                    $("#image_1").attr("src", image1);
+                                    $("#image_2").attr("src", image2);
+                                    $("#image_3").attr("src", image3);
+
+
+                                    // $("#image_1").attr("src", "images/shop/carosuel/"+image_1);
+                                    // $("#image_2").attr("src", "images/shop/carosuel/"+image_2);
+                                    // $("#image_3").attr("src", "images/shop/carosuel/"+image_3);
+
                            }
                        });
 

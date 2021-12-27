@@ -22,7 +22,7 @@ class UserViewController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
 
@@ -35,6 +35,12 @@ class UserViewController extends Controller
     public function Page($slug,$id){
         // echo '<pre>'; print_r($slug);
         // echo '<pre>'; print_r($id); exit;
+        if( $slug == 'shop'){
+            $Product = Product::all();
+            return view('user.shop' ,compact('Product'));
+
+            // $page = Page::where('id', '=', $id)->where('slug', '=' , $slug )->first();
+        }
 
         $PageMeta = PageMeta::where('page_id', '=', $id)->first();
 
@@ -43,6 +49,7 @@ class UserViewController extends Controller
          return view('user.viewPage',compact('page','PageMeta'));
 
             }
+
             else{
                 abort(404);
             }
@@ -52,11 +59,11 @@ class UserViewController extends Controller
 
 
  ////////////////////////////////////////////////////////////
-   public function Shop(){
+//    public function Shop(){
 
-       $Product = Product::all();
-       return view('user.shop' ,compact('Product'));
-   }
+//        $Product = Product::all();
+//        return view('user.shop' ,compact('Product'));
+//    }
 
 
 

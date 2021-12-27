@@ -3,16 +3,19 @@
 @section('myContent')
 
 <div class="container-fluid">
-    <h1 class="text-black-50" style="float: left;">Categories </h1>
-    <a href="{{ route('Category.create') }}" class="btn btn-primary mt-2 text-white" style="float: right;">+ Add Category</a>
+    <h1 class="text-black-50" style="float: left;">Quiz </h1>
+    <a href="{{ route('quiz.create') }}" class="btn btn-primary mt-2 text-white" style="float: right;">+ Add Quiz</a>
 
 
         <table class="table table-bordered data-table">
             <thead>
                 <tr>
                     <th>Sr</th>
-                    <th>Name</th>
-                    <th width="200px">Action</th>
+                    <th>Tutorial</th>
+                    <th>Title</th>
+                    <th>Marks Per Question</th>
+                    <th>Active</th>
+                    <th width="31%">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,10 +39,13 @@
           var table = $('.data-table').DataTable({
               processing: true,
               serverSide: true,
-              ajax: "{{ route('Category-data') }}",
+              ajax: "{{ route('quiz-data') }}",
               columns: [
                   {data: 'id', name: 'id'},
-                  {data: 'name', name: 'name'},
+                  {data: 'tutorial_id', name: 'tutorial_id'},
+                  {data: 'title', name: 'title'},
+                  {data: 'marks_per_question', name: 'marks_per_question'},
+                  {data: 'is_active', name: 'is_active'},
                   {data: 'action', name: 'action', orderable: false, searchable: false},
               ]
           });
@@ -54,7 +60,7 @@
 
     $(document).on('click', '.delete', function(){
                var id = $(this).data('id');
-            //   alert(id);
+            //    alert(id);
                swal({
                    title: "Are you sure?",
                    text: "Once deleted, you will not be able to recover data!",
@@ -64,18 +70,18 @@
                    })
                  .then((willDelete) => {
                  if (willDelete) {
-                       var url = "{{ route('DelCat',':id') }}";
+                       var url = "{{ route('quiz.destroy',':id') }}";
                        url = url.replace(':id', id);
 
                        var token = "{{ csrf_token() }}";
 
                        $.ajax({
-                           type: 'GET',
+                               type: 'DELETE',
                                url: url,
                                data: {'_token': token, '_method': 'DELETE'},
                                success: function (response) {
-
-                                swal("Poof! Category record has been deleted!", {
+// alert(response);
+                                swal("Poof! Quiz record has been deleted!", {
                                     icon: "success",
                                 });
                             $('.data-table').DataTable().ajax.reload();

@@ -101,6 +101,82 @@
     </li>
 
 
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Tutorial"
+            aria-expanded="true" aria-controls="Tutorial">
+            <i class="fa fa-book"></i>
+            <span>Tutorial</span>
+        </a>
+        <div id="Tutorial" class="collapse" aria-labelledby="headingProduct"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Tutorial:</h6>
+                <a class="collapse-item" href="{{route('tutorial.index')}}">View Tutorial</a>
+                <a class="collapse-item" href="{{route('tutorial.create')}}">Add Tutorial</a>
+
+            </div>
+        </div>
+    </li>
+    <hr class="sidebar-divider">
+
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Quiz"
+            aria-expanded="true" aria-controls="Quiz">
+            <i class="fa fa-book"></i>
+            <span>Quiz</span>
+        </a>
+        <div id="Quiz" class="collapse" aria-labelledby="headingProduct"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Quiz:</h6>
+                <a class="collapse-item" href="{{route('quiz.index')}}">View Quiz</a>
+                <a class="collapse-item" href="{{route('quiz.create')}}">Add Quiz</a>
+
+            </div>
+        </div>
+    </li>
+    <hr class="sidebar-divider">
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#question"
+            aria-expanded="true" aria-controls="question">
+            <i class="fa fa-book"></i>
+            <span>Quiz question</span>
+        </a>
+        <div id="question" class="collapse" aria-labelledby="headingProduct"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">question:</h6>
+                <a class="collapse-item" href="{{route('question.index')}}">question Quiz</a>
+                {{-- <a class="collapse-item" href="{{route('question.create')}}">Add Quiz</a> --}}
+
+            </div>
+        </div>
+    </li>
+    <hr class="sidebar-divider">
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Take_Quiz"
+            aria-expanded="true" aria-controls="Take_Quiz">
+            <i class="fa fa-book"></i>
+            <span>Take Quiz</span>
+        </a>
+        <div id="Take_Quiz" class="collapse" aria-labelledby="headingProduct"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">question:</h6>
+                <a class="collapse-item" href="{{route('take.create')}}">Take Quiz</a>
+                {{-- <a class="collapse-item" href="{{route('question.create')}}">Add Quiz</a> --}}
+
+            </div>
+        </div>
+    </li>
+    <hr class="sidebar-divider">
+    <br><br><br>
 
 
     <!-- Sidebar Toggler (Sidebar) -->

@@ -174,7 +174,7 @@
 
     $(document).on('click', '.delete', function(){
                var id = $(this).data('id');
-              alert(id);
+            //   alert(id);
                swal({
                    title: "Are you sure?",
                    text: "Once deleted, you will not be able to recover data!",
@@ -195,7 +195,11 @@
                                data: {'_token': token, '_method': 'DELETE'},
                                success: function (response) {
 
-                              location.reload();
+                                swal("Poof! Product record has been deleted!", {
+                                    icon: "success",
+                                });
+                            $('.data-table').DataTable().ajax.reload();
+                            //   location.reload();
 
                            }
                        });

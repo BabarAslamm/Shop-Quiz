@@ -3,15 +3,17 @@
 @section('myContent')
 
 <div class="container-fluid">
-    <h1 class="text-black-50" style="float: left;">Categories </h1>
-    <a href="{{ route('Category.create') }}" class="btn btn-primary mt-2 text-white" style="float: right;">+ Add Category</a>
+    <h1 class="text-black-50" style="float: left;">Question </h1>
+    {{-- <a href="{{ route('quiz.create') }}" class="btn btn-primary mt-2 text-white" style="float: right;">+ Add Quiz</a> --}}
 
 
         <table class="table table-bordered data-table">
             <thead>
                 <tr>
                     <th>Sr</th>
-                    <th>Name</th>
+                    <th>Quiz</th>
+                    <th>Question</th>
+                    <th>Active</th>
                     <th width="200px">Action</th>
                 </tr>
             </thead>
@@ -36,10 +38,12 @@
           var table = $('.data-table').DataTable({
               processing: true,
               serverSide: true,
-              ajax: "{{ route('Category-data') }}",
+              ajax: "{{ route('question-data') }}",
               columns: [
                   {data: 'id', name: 'id'},
-                  {data: 'name', name: 'name'},
+                  {data: 'quiz_id', name: 'quiz_id'},
+                  {data: 'question', name: 'question'},
+                  {data: 'is_active', name: 'is_active'},
                   {data: 'action', name: 'action', orderable: false, searchable: false},
               ]
           });
@@ -64,18 +68,18 @@
                    })
                  .then((willDelete) => {
                  if (willDelete) {
-                       var url = "{{ route('DelCat',':id') }}";
+                       var url = "{{ route('question.destroy',':id') }}";
                        url = url.replace(':id', id);
 
                        var token = "{{ csrf_token() }}";
 
                        $.ajax({
-                           type: 'GET',
+                           type: 'DELETE',
                                url: url,
                                data: {'_token': token, '_method': 'DELETE'},
                                success: function (response) {
-
-                                swal("Poof! Category record has been deleted!", {
+// alert(response);
+                                swal("Poof! Quiz record has been deleted!", {
                                     icon: "success",
                                 });
                             $('.data-table').DataTable().ajax.reload();
